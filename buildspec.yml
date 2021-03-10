@@ -13,8 +13,8 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t devops .
-      - docker tag devops:latest 074356481843.dkr.ecr.us-west-2.amazonaws.com/devops:latest
+      - docker build -t devops1 .
+      - docker tag devops1:latest 074356481843.dkr.ecr.us-west-2.amazonaws.com/devops:latest
   post_build:
     commands:
       - echo Build completed on `date`
