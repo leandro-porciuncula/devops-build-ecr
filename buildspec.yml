@@ -5,7 +5,6 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws --version
-      - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 074356481843.dkr.ecr.us-west-2.amazonaws.com
       - REPOSITORY_URI=074356481843.dkr.ecr.us-west-2.amazonaws.com/devops
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
@@ -13,8 +12,8 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t devops1 .
-      - docker tag devops1:latest 074356481843.dkr.ecr.us-west-2.amazonaws.com/devops:latest
+      - docker build -t devops .
+      - docker tag devops:latest 074356481843.dkr.ecr.us-west-2.amazonaws.com/devops:latest
   post_build:
     commands:
       - echo Build completed on `date`
