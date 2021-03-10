@@ -1,5 +1,5 @@
 FROM centos:latest
-LABEL leandro
+LABEL maintainer "leandro"
 RUN yum -y install httpd
 RUN yum -y install php
 CMD /usr/sbin/httpd -D FOREGROUND
