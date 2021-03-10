@@ -5,4 +5,5 @@ RUN yum -y install php
 CMD /usr/sbin/httpd -D FOREGROUND
 WORKDIR /var/www/html
 COPY index.html /var/www/html
+COPY teste.php /var/www/html
 EXPOSE 80
